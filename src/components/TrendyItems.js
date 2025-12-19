@@ -40,7 +40,8 @@ const TrendyItems = () => {
           itemId: item._id,
           name: item.name,
           image: item.image,
-          price: item.price,
+          actualPrice: Math.round(item.price * 1.3),
+          offerPrice: item.price,
           category: item.category,
           restaurant: item.restaurant.name,
           isActive: true
