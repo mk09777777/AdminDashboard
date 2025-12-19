@@ -50,6 +50,29 @@ export const adminAPI = {
   getHighlights: () => api.get('/admin/highlights'),
   createHighlight: (data) => api.post('/admin/highlights', data),
   deleteHighlight: (id) => api.delete(`/admin/highlights/${id}`),
+  
+  // Restaurant Access
+  getRestaurantAccess: (restaurantId) => api.post(`/admin/restaurant-access/${restaurantId}`),
+};
+
+export const restaurantAPI = {
+  // Orders
+  getOrders: () => api.get('/restaurant-dashboard/orders'),
+  updateOrderStatus: (orderId, status) => api.put(`/restaurant-dashboard/orders/${orderId}/status`, { status }),
+  
+  // Menu Items
+  getMenuItems: () => api.get('/restaurant-dashboard/items'),
+  createMenuItem: (data) => api.post('/restaurant-dashboard/items', data),
+  updateMenuItem: (itemId, data) => api.put(`/restaurant-dashboard/items/${itemId}`, data),
+  deleteMenuItem: (itemId) => api.delete(`/restaurant-dashboard/items/${itemId}`),
+  toggleItemAvailability: (itemId, isAvailable) => api.put(`/restaurant-dashboard/items/${itemId}/availability`, { isAvailable }),
+  
+  // Restaurant Info
+  getDashboardData: () => api.get('/restaurant-dashboard/dashboard'),
+  updateRestaurantInfo: (data) => api.put('/restaurant-dashboard/info', data),
+  
+  // Analytics
+  getAnalytics: () => api.get('/restaurant-dashboard/analytics'),
 };
 
 export default api;
